@@ -25,7 +25,7 @@ SECRET_KEY = '^po2f!#nurlw==ahm3%0$61ezw5a$0i8mp1#a)-nk$n0qy5c24'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [invoicegenerator-jwt.herokuapp.com]
 
 
 # Application definition

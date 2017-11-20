@@ -6,6 +6,10 @@ from rest_framework import permissions
 
 
 class LineViewSet(NestedViewSetMixin, ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
     model = Line
     queryset = Line.objects.all()
     serializer_class = LineSerializer

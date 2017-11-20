@@ -6,13 +6,16 @@ from rest_framework.serializers import ValidationError
 
 
 class LineSerializer(serializers.ModelSerializer):
-
+    '''
+    Define the Lineitem's serializer.
+    In addition, define the relationship with the parrent Invoice.
+    '''
     invoice = InvoiceSerializer(read_only=True)
     invoice_id = serializers.PrimaryKeyRelatedField(
         queryset=Invoice.objects.all(), source='invoice')
     def validate(self, data):
         """
-        Validating the amount claculation
+        Validating the amount claculation on each create or update
         """
         try:
             data['amount'] = data['quantity'] * data['rate']

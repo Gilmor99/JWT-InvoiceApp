@@ -4,6 +4,9 @@ from invoices.models import Invoice
 
 
 class AccountSerializer(serializers.ModelSerializer):
+    '''
+    Define the Account's serializer and its associated linked invoices
+    '''
     invoices = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=False,

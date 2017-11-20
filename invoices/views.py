@@ -6,6 +6,10 @@ from rest_framework import permissions
 
 
 class InvoiceViewSet(NestedViewSetMixin, ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
     model = Invoice
     queryset = Invoice.objects.all()
     serializer_class = InvoiceSerializer

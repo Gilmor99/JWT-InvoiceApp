@@ -6,6 +6,10 @@ from accounts.serializers import AccountSerializer
 
 
 class InvoiceSerializer(serializers.ModelSerializer):
+    '''
+    Define the Invoice's serializer and its associated line-items.
+    In addition, define the relationship with the parrent Account.
+    '''
     account = AccountSerializer(read_only=True)
     account_id = serializers.PrimaryKeyRelatedField(
         queryset=Account.objects.all(), source='account')
@@ -19,7 +23,8 @@ class InvoiceSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Calculate the subTotal, Total and Ballance Due amounts
+        Calculate the subTotal, Total and Ballance-Due amounts,
+        on each create or update event.
         """
 
         data['subTotal'] = 0

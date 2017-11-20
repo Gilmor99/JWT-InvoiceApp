@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Invoice(models.Model):
+    '''
+    Define the Invoice Model
+    '''
     id = models.AutoField(primary_key=True)
     number = models.IntegerField(null=False)
     fromName = models.CharField(max_length=100, blank=False, null=False)

@@ -10,6 +10,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+'''
+Define the routing and navigation of the application
+'''
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'accounts', AccountViewSet)
@@ -21,6 +24,7 @@ router.register(r'lineitems', LineViewSet)
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+    # Integration of the JWT security and Schema View
     url(r'^$', generic.RedirectView.as_view(
          url='/api/', permanent=False)),
     url(r'^api/$', get_schema_view()),

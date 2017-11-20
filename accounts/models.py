@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Account(models.Model):
+    '''
+    Define the Account Model
+    '''
     id = models.AutoField(primary_key=True)
     company = models.CharField(max_length=80, null=False)
     address = models.CharField(max_length=80)
